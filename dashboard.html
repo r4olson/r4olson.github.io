@@ -654,12 +654,12 @@
 
 const SHEET_ID = '1UemSyRvZnO-Vdk0LLqErNMKTnywE0AoOq4JD5i4U2Vg';
 
-// Sheet-specific CSV URLs
+// Sheet-specific CSV URLs (using pub export which doesn't trigger CSP eval issues)
 const URLS = {
-    weekly:     `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Weekly`,
-    content:    `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Content`,
-    milestones: `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Milestones`,
-    meta:       `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Meta`,
+    weekly:     `https://docs.google.com/spreadsheets/d/${SHEET_ID}/pub?output=csv&sheet=Weekly`,
+    content:    `https://docs.google.com/spreadsheets/d/${SHEET_ID}/pub?output=csv&sheet=Content`,
+    milestones: `https://docs.google.com/spreadsheets/d/${SHEET_ID}/pub?output=csv&sheet=Milestones`,
+    meta:       `https://docs.google.com/spreadsheets/d/${SHEET_ID}/pub?output=csv&sheet=Meta`,
 };
 
 // ─── CSV Parser ───
