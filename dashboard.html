@@ -12,12 +12,12 @@
     <meta property="og:type" content="website">
 
     <!-- Google Analytics — Replace G-XXXXXXXXXX with your Measurement ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PEKQWW46GW"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-G-PEKQWW46GW');
+        gtag('config', 'G-XXXXXXXXXX');
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,6 +102,15 @@
         }
 
         .nav-links a:hover { color: var(--accent); }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
         /* ─── Header ─── */
         .dash-header {
@@ -457,6 +466,19 @@
             .kpi-row { grid-template-columns: repeat(3, 1fr); }
             .two-col { grid-template-columns: 1fr; }
             .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                border-bottom: 1px solid var(--border);
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+            }
+            .nav-mobile-toggle { display: block; }
         }
 
         @media (max-width: 600px) {
@@ -485,9 +507,11 @@
 <!-- ═══ Navigation ═══ -->
 <nav>
     <a href="https://r4olson.github.io" class="nav-logo">R. Olson</a>
+    <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
     <ul class="nav-links">
         <li><a href="https://r4olson.github.io">Portfolio</a></li>
-        <li><a href="https://r4olson.github.io/dashboard">Dashboard</a></li>
+        <li><a href="https://r4olson.github.io/dashboard.html">Dashboard</a></li>
+        <li><a href="https://r4olson.github.io/movement.html">The Movement</a></li>
         <li><a href="https://www.linkedin.com/in/olson-richard" target="_blank">LinkedIn</a></li>
     </ul>
 </nav>
@@ -628,7 +652,7 @@
  * ──────────────────────────────────────────────────────────────────────
  */
 
-const SHEET_ID = '1UemSyRvZnO-Vdk0LLqErNMKTnywE0AoOq4JD5i4U2Vg';
+const SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE';
 
 // Sheet-specific CSV URLs
 const URLS = {
@@ -709,8 +733,14 @@ async function loadDashboard() {
 
 function renderMeta(data) {
     const meta = {};
-    data.forEach(row => { meta[row.Key] = row.Value; });
-    document.getElementById('lastUpdated').textContent = meta.last_updated || 'Unknown';
+    data.forEach(row => {
+        // Try multiple possible column name formats
+        const key = row.Key || row.key || row.KEY || Object.values(row)[0] || '';
+        const val = row.Value || row.value || row.VALUE || Object.values(row)[1] || '';
+        meta[key.trim().toLowerCase()] = val.trim();
+    });
+    const updated = meta['last_updated'] || meta['lastupdated'] || meta['date'] || '';
+    document.getElementById('lastUpdated').textContent = updated || 'Check Meta sheet setup';
 }
 
 function renderKPIs(weeks) {
