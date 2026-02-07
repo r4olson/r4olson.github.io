@@ -654,16 +654,12 @@
 
 const SHEET_ID = '1UemSyRvZnO-Vdk0LLqErNMKTnywE0AoOq4JD5i4U2Vg';
 
-// We'll use the export/csv endpoint which is the most reliable for public sheets
-function getSheetURL(sheetName) {
-    return `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&sheet=${encodeURIComponent(sheetName)}`;
-}
-
+// Using gviz endpoint which properly supports sheet name selection
 const URLS = {
-    weekly:     getSheetURL('Weekly'),
-    content:    getSheetURL('Content'),
-    milestones: getSheetURL('Milestones'),
-    meta:       getSheetURL('Meta'),
+    weekly:     `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Weekly`,
+    content:    `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Content`,
+    milestones: `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Milestones`,
+    meta:       `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Meta`,
 };
 
 // ─── CSV Parser ───
