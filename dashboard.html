@@ -945,11 +945,7 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // ─── Initialize ───
-if (SHEET_ID !== '1UemSyRvZnO-Vdk0LLqErNMKTnywE0AoOq4JD5i4U2Vg') {
-    loadDashboard();
-} else {
-    document.getElementById('lastUpdated').textContent = 'Sheet ID not configured — see setup instructions in source code';
-}
+loadDashboard();
 </script>
 
 </body>
