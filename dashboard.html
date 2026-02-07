@@ -654,12 +654,16 @@
 
 const SHEET_ID = '1UemSyRvZnO-Vdk0LLqErNMKTnywE0AoOq4JD5i4U2Vg';
 
-// Sheet-specific CSV URLs (using pub export which doesn't trigger CSP eval issues)
+// We'll use the export/csv endpoint which is the most reliable for public sheets
+function getSheetURL(sheetName) {
+    return `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&sheet=${encodeURIComponent(sheetName)}`;
+}
+
 const URLS = {
-    weekly:     `https://docs.google.com/spreadsheets/d/${SHEET_ID}/pub?output=csv&sheet=Weekly`,
-    content:    `https://docs.google.com/spreadsheets/d/${SHEET_ID}/pub?output=csv&sheet=Content`,
-    milestones: `https://docs.google.com/spreadsheets/d/${SHEET_ID}/pub?output=csv&sheet=Milestones`,
-    meta:       `https://docs.google.com/spreadsheets/d/${SHEET_ID}/pub?output=csv&sheet=Meta`,
+    weekly:     getSheetURL('Weekly'),
+    content:    getSheetURL('Content'),
+    milestones: getSheetURL('Milestones'),
+    meta:       getSheetURL('Meta'),
 };
 
 // ─── CSV Parser ───
@@ -710,14 +714,41 @@ function pctChange(current, previous) {
 }
 
 // ─── Render Functions ───
+async function fetchSheet(url, name) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`${name}: HTTP ${response.status}`);
+        const text = await response.text();
+        if (text.includes('<!DOCTYPE') || text.includes('<html')) {
+            throw new Error(`${name}: Got HTML instead of CSV — sheet may not be shared publicly`);
+        }
+        return parseCSV(text);
+    } catch (err) {
+        console.error(`Error fetching ${name}:`, err);
+        return [];
+    }
+}
+
 async function loadDashboard() {
     try {
+        document.getElementById('lastUpdated').textContent = 'Fetching data...';
+
         const [weeklyData, contentData, milestoneData, metaData] = await Promise.all([
-            fetch(URLS.weekly).then(r => r.text()).then(parseCSV),
-            fetch(URLS.content).then(r => r.text()).then(parseCSV),
-            fetch(URLS.milestones).then(r => r.text()).then(parseCSV),
-            fetch(URLS.meta).then(r => r.text()).then(parseCSV),
+            fetchSheet(URLS.weekly, 'Weekly'),
+            fetchSheet(URLS.content, 'Content'),
+            fetchSheet(URLS.milestones, 'Milestones'),
+            fetchSheet(URLS.meta, 'Meta'),
         ]);
+
+        console.log('Weekly rows:', weeklyData.length, weeklyData);
+        console.log('Content rows:', contentData.length, contentData);
+        console.log('Milestone rows:', milestoneData.length, milestoneData);
+        console.log('Meta rows:', metaData.length, metaData);
+
+        if (weeklyData.length === 0 && contentData.length === 0 && milestoneData.length === 0 && metaData.length === 0) {
+            document.getElementById('lastUpdated').textContent = 'Error: No data returned — check that sheet is shared as "Anyone with the link"';
+            return;
+        }
 
         renderMeta(metaData);
         renderKPIs(weeklyData);
@@ -727,7 +758,7 @@ async function loadDashboard() {
         renderMilestones(milestoneData);
     } catch (err) {
         console.error('Dashboard load error:', err);
-        document.getElementById('lastUpdated').textContent = 'Error loading data — check Sheet ID';
+        document.getElementById('lastUpdated').textContent = 'Error: ' + err.message;
     }
 }
 
