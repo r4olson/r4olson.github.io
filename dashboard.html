@@ -11,13 +11,13 @@
     <meta property="og:description" content="Real-time job search metrics. Transparent by design.">
     <meta property="og:type" content="website">
 
-    <!-- Google Analytics — Replace G-XXXXXXXXXX with your Measurement ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google Analytics — Replace G-PEKQWW46GW with your Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PEKQWW46GW"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
+        gtag('config', 'G-PEKQWW46GW');
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -652,7 +652,7 @@
  * ──────────────────────────────────────────────────────────────────────
  */
 
-const SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE';
+const SHEET_ID = '1UemSyRvZnO-Vdk0LLqErNMKTnywE0AoOq4JD5i4U2Vg';
 
 // Sheet-specific CSV URLs
 const URLS = {
@@ -914,7 +914,7 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // ─── Initialize ───
-if (SHEET_ID !== 'YOUR_GOOGLE_SHEET_ID_HERE') {
+if (SHEET_ID !== '1UemSyRvZnO-Vdk0LLqErNMKTnywE0AoOq4JD5i4U2Vg') {
     loadDashboard();
 } else {
     document.getElementById('lastUpdated').textContent = 'Sheet ID not configured — see setup instructions in source code';
