@@ -763,14 +763,21 @@ async function loadDashboard() {
 }
 
 function renderMeta(data) {
+    console.log('Raw meta data:', JSON.stringify(data));
+    
+    // First try: standard key-value lookup
     const meta = {};
     data.forEach(row => {
-        // Try multiple possible column name formats
-        const key = row.Key || row.key || row.KEY || Object.values(row)[0] || '';
-        const val = row.Value || row.value || row.VALUE || Object.values(row)[1] || '';
-        meta[key.trim().toLowerCase()] = val.trim();
+        const keys = Object.keys(row);
+        const vals = Object.values(row);
+        const key = (vals[0] || '').toString().trim().replace(/^"|"$/g, '').toLowerCase();
+        const val = (vals[1] || '').toString().trim().replace(/^"|"$/g, '');
+        if (key) meta[key] = val;
     });
-    const updated = meta['last_updated'] || meta['lastupdated'] || meta['date'] || '';
+    
+    console.log('Parsed meta:', JSON.stringify(meta));
+    
+    const updated = meta['last_updated'] || meta['lastupdated'] || meta['date'] || meta['value'] || '';
     document.getElementById('lastUpdated').textContent = updated || 'Check Meta sheet setup';
 }
 
