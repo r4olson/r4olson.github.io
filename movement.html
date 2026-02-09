@@ -136,6 +136,17 @@
         .resources-note a { color: var(--accent); text-decoration: none; }
         .resources-note a:hover { text-decoration: underline; }
 
+        .data-section { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 2rem; }
+        .data-inner { max-width: 900px; margin: 0 auto; }
+        .data-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2; margin-bottom: 1rem; }
+        .data-desc { color: var(--text-secondary); font-size: 1.05rem; max-width: 700px; margin-bottom: 2.5rem; line-height: 1.7; }
+        .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .data-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; display: flex; flex-direction: column; }
+        .data-card-number { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+        .data-card-title { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 0.75rem; }
+        .data-card-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
+        .btn-small { padding: 0.65rem 1.25rem; font-size: 0.8rem; align-self: flex-start; }
+
         footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 0.8rem; color: var(--text-muted); }
         footer a { color: var(--accent); text-decoration: none; }
 
@@ -147,7 +158,7 @@
             .nav-links { display: none; }
             .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; gap: 1rem; }
             .nav-mobile-toggle { display: block; }
-            .weight-grid, .silence-grid, .carry-grid, .participate-steps { grid-template-columns: 1fr; }
+            .weight-grid, .silence-grid, .carry-grid, .participate-steps, .data-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 600px) {
             .hero { padding: 6rem 1.25rem 3rem; }
@@ -300,6 +311,28 @@
                 <div class="carry-card-icon">&#128260;</div>
                 <div class="carry-card-title">The rebuild</div>
                 <div class="carry-card-text">Starting over at 30, 40, 50. Reinventing yourself after the thing you built your identity around disappeared. Finding out who you are without the title.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="data-section">
+    <div class="data-inner reveal">
+        <div class="section-label">The Data</div>
+        <h2 class="data-title">Help us measure the silence.</h2>
+        <p class="data-desc">Most vulnerability content on LinkedIn is anecdotal. We're building the first data set on what professionals actually carry and what happens when they share it. Two ways to contribute:</p>
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="data-card-number">01</div>
+                <div class="data-card-title">Share Your Story</div>
+                <div class="data-card-text">Tell us what you carried and what you did with the weight. Anonymous submissions welcome. Featured stories are shared only with your permission on #CarriedThat Fridays.</div>
+                <a href="https://bit.ly/CarriedThatIntake" target="_blank" class="btn btn-primary btn-small">Submit Your Story &rarr;</a>
+            </div>
+            <div class="data-card">
+                <div class="data-card-number">02</div>
+                <div class="data-card-title">Take the Anonymous Survey</div>
+                <div class="data-card-text">2 minutes. No identifying information. We're measuring what professionals hide, what it costs, and what would make it safe to be honest. Results published in aggregate.</div>
+                <a href="https://bit.ly/ProfessionalSetbackSurvey" target="_blank" class="btn btn-primary btn-small">Take the Survey &rarr;</a>
             </div>
         </div>
     </div>
