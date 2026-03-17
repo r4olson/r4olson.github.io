@@ -3,26 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Richard Olson | #CarriedThat — The Movement</title>
-    <meta name="description" content="A movement to destigmatize setbacks in professional life. Depression, PTSD, hospitalization, rebuilding. I'll go first.">
-    <meta property="og:title" content="#CarriedThat — Destigmatizing Setbacks in Professional Life">
-    <meta property="og:description" content="Depression. PTSD. Hospitalization. Rebuilding. A movement for professionals who carry more than their title suggests.">
-    <meta property="og:type" content="website">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PEKQWW46GW"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-PEKQWW46GW');
-    </script>
+    <title>Richard Olson | #CarriedThat</title>
+    <meta name="description" content="#CarriedThat — A LinkedIn community for professionals willing to talk honestly about what resilience actually looks like.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg-primary: #0a0a0c;
             --bg-secondary: #111115;
             --bg-card: #16161b;
+            --bg-accent: #1c1c23;
             --text-primary: #e8e6e1;
             --text-secondary: #9a9890;
             --text-muted: #5a5850;
@@ -34,141 +27,306 @@
             --font-body: 'Instrument Sans', -apple-system, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
+
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
-        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        ::selection { background: var(--accent); color: var(--bg-primary); }
-
-        nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.25rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(10,10,12,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-        .nav-logo { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.03em; transition: color 0.3s ease; }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
-
-        .hero { min-height: 85vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 2rem 4rem; max-width: 900px; margin: 0 auto; position: relative; }
-        .hero::before { content: ''; position: absolute; top: 10%; left: -15%; width: 600px; height: 600px; background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%); pointer-events: none; z-index: -1; }
-        .hero-eyebrow { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease 0.2s forwards; }
-        .hero h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; font-weight: 400; margin-bottom: 1.5rem; opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease 0.4s forwards; }
-        .hero h1 .accent { color: var(--accent); }
-        .hero-subtitle { font-size: 1.2rem; color: var(--text-secondary); max-width: 650px; margin-bottom: 2rem; opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease 0.6s forwards; }
-        .hero-cta { opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease 0.8s forwards; display: flex; gap: 1rem; flex-wrap: wrap; }
-
-        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.75rem; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; text-decoration: none; border-radius: 4px; transition: all 0.3s ease; cursor: pointer; border: none; }
-        .btn-primary { background: var(--accent); color: var(--bg-primary); }
-        .btn-primary:hover { background: #d4b05a; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,164,78,0.25); }
-        .btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--border); }
-        .btn-secondary:hover { border-color: var(--accent-dim); color: var(--accent); }
-
-        .divider { width: 60px; height: 1px; background: var(--accent); margin: 0 0 2rem 0; }
-        .section-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-
-        .weight-section { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 2rem; }
-        .weight-inner { max-width: 900px; margin: 0 auto; }
-        .weight-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2; margin-bottom: 2rem; }
-        .weight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
-        .weight-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; text-align: center; }
-        .weight-stat { font-family: var(--font-display); font-size: 2.2rem; color: var(--accent); line-height: 1.1; margin-bottom: 0.5rem; }
-        .weight-stat-label { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; }
-        .weight-stat-source { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); margin-top: 0.5rem; }
-        .weight-text { font-size: 1.05rem; color: var(--text-secondary); max-width: 750px; line-height: 1.8; }
-        .weight-text strong { color: var(--text-primary); }
-
-        .origin-section { padding: 5rem 2rem; max-width: 800px; margin: 0 auto; }
-        .origin-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2; margin-bottom: 1.5rem; }
-        .origin-content p { color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 1.05rem; line-height: 1.8; }
-        .origin-content p strong { color: var(--text-primary); font-weight: 600; }
-        .origin-content p em { color: var(--text-primary); font-style: italic; }
-        .pullquote { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.4; color: var(--text-primary); border-left: 2px solid var(--accent); padding: 1rem 0 1rem 1.5rem; margin: 2.5rem 0; }
-        .soviet-aside { font-style: italic; color: var(--text-primary); background: var(--bg-card); border-left: 2px solid var(--accent-dim); padding: 1.25rem 1.5rem; margin: 2rem 0; font-size: 1rem; line-height: 1.7; border-radius: 0 6px 6px 0; }
-        .record-correction { background: var(--bg-card); border: 1px solid var(--accent-dim); border-left: 3px solid var(--accent); padding: 1.5rem 1.75rem; margin: 2rem 0; border-radius: 0 6px 6px 0; }
-        .record-correction-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-        .record-correction p { color: var(--text-secondary); font-size: 1rem; line-height: 1.8; margin-bottom: 0.75rem; }
-        .record-correction p:last-child { margin-bottom: 0; }
-        .record-correction strong { color: var(--text-primary); font-weight: 600; }
-
-        .silence-section { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 2rem; }
-        .silence-inner { max-width: 900px; margin: 0 auto; }
-        .silence-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2; margin-bottom: 1.5rem; }
-        .silence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin: 2rem 0; }
-        .silence-card { background: var(--bg-card); padding: 2rem; }
-        .silence-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.75rem; }
-        .silence-card.what .silence-label { color: var(--text-muted); }
-        .silence-card.real .silence-label { color: var(--accent); }
-        .silence-text { font-size: 1.05rem; line-height: 1.5; }
-        .silence-card.what .silence-text { color: var(--text-muted); }
-        .silence-card.real .silence-text { color: var(--text-primary); font-weight: 500; }
-
-        .carry-section { padding: 5rem 2rem; }
-        .carry-inner { max-width: 900px; margin: 0 auto; }
-        .carry-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2; margin-bottom: 1rem; }
-        .carry-desc { color: var(--text-secondary); font-size: 1.05rem; max-width: 650px; margin-bottom: 2.5rem; }
-        .carry-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-        .carry-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; transition: border-color 0.3s ease; }
-        .carry-card:hover { border-color: var(--accent-dim); }
-        .carry-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
-        .carry-card-title { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 0.5rem; }
-        .carry-card-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
-
-        .manifesto { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 2rem; }
-        .manifesto-inner { max-width: 800px; margin: 0 auto; }
-        .manifesto-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2; margin-bottom: 2rem; }
-        .rules-list { list-style: none; counter-reset: rules; display: flex; flex-direction: column; gap: 1.25rem; margin: 2rem 0; }
-        .rules-list li { counter-increment: rules; display: flex; gap: 1rem; align-items: flex-start; font-size: 1.05rem; color: var(--text-secondary); line-height: 1.6; }
-        .rules-list li::before { content: counter(rules); font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); background: var(--accent-glow); border: 1px solid var(--accent-dim); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; }
-        .rules-list li strong { color: var(--text-primary); }
-
-        .disclaimer-section { padding: 5rem 2rem; max-width: 800px; margin: 0 auto; }
-        .disclaimer-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2; margin-bottom: 1.5rem; }
-        .disclaimer-text { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.25rem; }
-        .disclaimer-box { background: var(--bg-card); border: 1px solid var(--accent-dim); border-radius: 8px; padding: 2rem; margin: 2rem 0; }
-        .disclaimer-box p { font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); line-height: 1.5; text-align: center; font-style: italic; }
-
-        .participate { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 6rem 2rem; text-align: center; }
-        .participate-inner { max-width: 800px; margin: 0 auto; }
-        .participate-title { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.15; margin-bottom: 1.25rem; }
-        .participate-desc { color: var(--text-secondary); max-width: 550px; margin: 0 auto 2rem; font-size: 1.05rem; }
-        .participate-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 3rem 0; text-align: left; }
-        .participate-step { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.75rem; }
-        .step-number { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
-        .step-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .step-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
-        .tagline { font-family: var(--font-display); font-size: 1.5rem; color: var(--accent); margin: 2rem 0; }
-
-        .resources-note { max-width: 600px; margin: 2.5rem auto 0; padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; text-align: left; }
-        .resources-note-title { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-        .resources-note p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.5rem; }
-        .resources-note a { color: var(--accent); text-decoration: none; }
-        .resources-note a:hover { text-decoration: underline; }
-
-        .data-section { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 2rem; }
-        .data-inner { max-width: 900px; margin: 0 auto; }
-        .data-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2; margin-bottom: 1rem; }
-        .data-desc { color: var(--text-secondary); font-size: 1.05rem; max-width: 700px; margin-bottom: 2.5rem; line-height: 1.7; }
-        .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        .data-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; display: flex; flex-direction: column; }
-        .data-card-number { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
-        .data-card-title { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 0.75rem; }
-        .data-card-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
-        .btn-small { padding: 0.65rem 1.25rem; font-size: 0.8rem; align-self: flex-start; }
-
-        footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 0.8rem; color: var(--text-muted); }
-        footer a { color: var(--accent); text-decoration: none; }
-
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 900px) {
-            .nav-links { display: none; }
-            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; gap: 1rem; }
-            .nav-mobile-toggle { display: block; }
-            .weight-grid, .silence-grid, .carry-grid, .participate-steps, .data-grid { grid-template-columns: 1fr; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
-        @media (max-width: 600px) {
-            .hero { padding: 6rem 1.25rem 3rem; }
-            .weight-section, .origin-section, .silence-section, .carry-section, .manifesto, .disclaimer-section { padding: 3rem 1.25rem; }
-            .participate { padding: 4rem 1.25rem; }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 12, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        .hero {
+            min-height: 65vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10rem 2rem 5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.75rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background: #d4b05a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(200, 164, 78, 0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-dim);
+            color: var(--accent);
+        }
+
+        .divider {
+            width: 48px;
+            height: 2px;
+            background: var(--accent);
+            margin: 1.25rem 0 2rem;
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .section-body {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+            max-width: 680px;
+        }
+
+        .section-body strong {
+            color: var(--text-primary);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-dim);
+            transform: translateY(-3px);
+        }
+
+        .card-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 2.5rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+
+        .how-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.75rem;
+        }
+
+        .how-number {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            margin-bottom: 0.75rem;
+        }
+
+        .how-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .how-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .cta-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .cta-block h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-block p {
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        footer a { color: var(--text-muted); text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .cards-grid, .how-grid { grid-template-columns: 1fr; }
+            .stat-row { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
         }
     </style>
 </head>
@@ -176,268 +334,121 @@
 
 <nav>
     <a href="https://r4olson.github.io" class="nav-logo">R. Olson</a>
-    <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
     <ul class="nav-links">
         <li><a href="https://r4olson.github.io">Portfolio</a></li>
-        <li><a href="https://r4olson.github.io/movement.html">The Movement</a></li>
         <li><a href="https://www.linkedin.com/in/olson-richard" target="_blank">LinkedIn</a></li>
     </ul>
 </nav>
 
 <header class="hero">
     <div class="hero-eyebrow">#CarriedThat</div>
-    <h1>Everyone you admire<br>is <span class="accent">carrying something.</span></h1>
-    <p class="hero-subtitle">
-        Depression. PTSD. Hospitalization. Being fired. Rebuilding from zero at forty-something. These aren't disqualifications from leadership. They're what made the leader.
+    <h1>The setbacks that built the leader.</h1>
+    <p class="hero-sub">
+        A LinkedIn community for professionals willing to talk honestly about what resilience actually looks like — not the polished version, the real one.
     </p>
-    <div class="hero-cta">
-        <a href="#origin" class="btn btn-primary">Read the Origin Story &rarr;</a>
-        <a href="#participate" class="btn btn-secondary">Share What You Carry</a>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="https://www.linkedin.com/in/olson-richard" target="_blank" class="btn btn-primary">Follow on LinkedIn →</a>
+        <a href="https://bit.ly/CarriedThatIntake" target="_blank" class="btn btn-secondary">Share Your Story</a>
     </div>
 </header>
 
-<div class="weight-section">
-    <div class="weight-inner reveal">
-        <div class="section-label">The Weight We Don't Talk About</div>
-        <h2 class="weight-title">Mental health doesn't pause for your career.</h2>
-        <div class="divider"></div>
-        <div class="weight-grid">
-            <div class="weight-card">
-                <div class="weight-stat">1 in 5</div>
-                <div class="weight-stat-label">U.S. adults experience mental illness in a given year</div>
-                <div class="weight-stat-source">NAMI, 2023</div>
-            </div>
-            <div class="weight-card">
-                <div class="weight-stat">72%</div>
-                <div class="weight-stat-label">of entrepreneurs report mental health concerns</div>
-                <div class="weight-stat-source">National Institute of Mental Health</div>
-            </div>
-            <div class="weight-card">
-                <div class="weight-stat">&lt;1%</div>
-                <div class="weight-stat-label">of executives talk about it publicly</div>
-                <div class="weight-stat-source">Observation. And the problem.</div>
-            </div>
-        </div>
-        <p class="weight-text">
-            The people making the biggest decisions in business are also the least likely to admit they're struggling. Not because they're stronger than everyone else. <strong>Because the system punishes honesty and rewards performance.</strong> So they carry it quietly: the depression, the anxiety, the PTSD, the burnout that crosses the line into something clinical. And they never say a word, because saying it out loud could cost them the career they've spent decades building.
-        </p>
-    </div>
-</div>
-
-<div class="origin-section reveal" id="origin">
-    <div class="section-label">The Origin</div>
-    <h2 class="origin-title">I'll go first.</h2>
+<section>
+    <div class="section-label">The Idea</div>
+    <h2 class="section-title">Most professionals share their wins.<br>Few share what it cost.</h2>
     <div class="divider"></div>
-    <div class="origin-content">
-        <p>I'm Richard Olson. I've delivered nine-figure documented business impact across enterprise retail and healthcare operations. I led intelligence operations during Operation Enduring Freedom. I built analytics platforms at the world's largest company. I grew a small business from $750K to $5M+ revenue by building the systems it never had.</p>
+    <p class="section-body">
+        The leaders people admire most often have the most unspoken in their history. Career pivots that weren't planned. Roles that ended badly. Years that didn't go as expected. The gap between the resume and the reality.
+    </p>
+    <p class="section-body">
+        <strong>#CarriedThat</strong> is about closing that gap. Not as a grievance — as a contribution. Because the next person going through something hard deserves to see that people they respect went through something hard too, and came out the other side still building.
+    </p>
 
-        <p>In November 2023, I was hospitalized for <strong>major depression and PTSD</strong>.</p>
-
-        <p>Around the same time, a decade-long chapter at one of the world's largest companies came to an end. There are things about how that chapter ended that I'm not able to discuss. Not because I'm protecting anyone, but because legal agreements drew a line around the story. What I can tell you is this: I gave a decade. I built things that mattered. And when I needed the system to have room for someone who was struggling, it didn't.</p>
-
-        <div class="record-correction">
-            <div class="record-correction-label">A note on the public record</div>
-            <p>Court filings related to my departure characterize my condition as BPD&mdash;Borderline Personality Disorder. That characterization is inaccurate. What I experienced was a severe and temporary psychotic reaction caused by an interaction between prescribed medication and CBD. When the CBD was identified as the catalyst and discontinued, the symptoms&mdash;including paranoia and delusions&mdash;resolved completely. I own the decision to use CBD.</p>
-            <p>I want to be clear about something: <strong>even if I did have BPD, it would not disqualify me from leadership.</strong> Borderline Personality Disorder is a treatable condition, and people living with it lead productive, high-performing professional lives every day. Discrimination on the basis of any mental health condition is illegal under the ADA. The stigma around BPD is exactly the kind of silence this movement exists to challenge.</p>
-            <p>I'm correcting the record because accuracy matters, not because one diagnosis is more acceptable than another. The public record tells one version of my story. <strong>This is the accurate one.</strong></p>
+    <div class="stat-row">
+        <div class="stat">
+            <div class="stat-number">1 in 5</div>
+            <div class="stat-label">Adults experience mental illness annually</div>
         </div>
-
-        <div class="soviet-aside">I studied Russian film in college. Soviet directors spent careers learning to tell the truth under censorship: allegory, subtext, the weight of what isn't said. I never imagined I'd need those techniques to tell my own story on LinkedIn. But here I am.</div>
-
-        <p>A few months after the hospitalization, a recruiter from a major CPG company reached out about a demand planning role. The interviews went well. I was qualified. The conversations were strong. Then came the last question: <strong>&ldquo;Why did you leave the corporate world?&rdquo;</strong></p>
-
-        <p>I gave a boilerplate answer. Something safe. Something that avoided the hospitalization, the depression, and the fact that my world had just collapsed. I played it the way every career coach tells you to play it: keep it positive, keep it professional, keep it vague.</p>
-
-        <p>I don't know if that answer cost me the role. But I know it cost me something. I walked out of that interview knowing I had just hidden the most important thing about where I was in my life. And the version of myself I presented in that room wasn't someone I recognized.</p>
-
-        <p>In hindsight, I wish I had just said it. Not as a confession. Not to make anyone uncomfortable. But as context that actually explained who I was in that moment: someone who had been through something hard, learned from it, and was ready to work. That's not a liability. That's a data point.</p>
-
-        <p><strong>If you're reading this and you're carrying something into your next interview, here's what I'd tell you:</strong> you don't have to perform pain. You don't have to relive it in front of a stranger. But you can frame what you went through as a learning moment and let the lesson do the talking. &ldquo;I went through a health challenge. Here's what it taught me about resilience, priorities, and how I lead now.&rdquo; That's not oversharing. That's self-awareness. And the right interviewer will hear it as a strength, not a risk.</p>
-
-        <p>This process doesn't have to be painful. It can be something else entirely.</p>
-
-        <p>Seven months later, I tried to go back. June 2024. I thought I was ready. I wasn't.</p>
-
-        <p>Thirty days in, someone told me my &ldquo;personality doesn't fit.&rdquo; They were probably right. Not about the label, but about the signal underneath it. I was functioning. Showing up, producing, solving problems. But I wasn't whole yet. And when you're not whole, people can feel it in a room even when your work product says otherwise.</p>
-
-        <p><strong>I went back too soon.</strong> That's not an excuse. It's something I had to learn the hard way.</p>
-
-        <p>I could tell all of this as a grievance. But that's not the whole truth.</p>
-
-        <p>The whole truth is: large organizations aren't families. They're systems. Systems optimize for continuity. The people who reached out afterward weren't &ldquo;the company.&rdquo; They were individuals. The company is an abstraction. The people are real.</p>
-
-        <blockquote class="pullquote">What came next wasn't a strategy. It was a surrender.</blockquote>
-
-        <p>I stopped trying to perform my way out of it. I got radically transparent with myself about what I'd lost, what I'd contributed to, and what I couldn't fix alone. And I humbled myself enough to practice faith. Not faith as a platitude. Faith as a daily discipline. The willingness to believe that what I'm building now matters, even when I can't see where it leads.</p>
-
-        <p>Those two things, radical honesty and practiced faith, aren't the kind of tools that show up on a resume. But they're the reason I'm still building. They gave me the foundation to start again when the professional playbook had nothing left to offer.</p>
-
-        <p>Along the way, I leaned into AI as a tool for rebuilding. Not as a buzzword, but as a practical way to structure my thinking, automate what I could, and move forward when my brain wouldn't cooperate. It gave me leverage when I had very little.</p>
-
-        <p><strong>I'm not sharing this because it's comfortable. I'm sharing it because the silence isn't helping anyone.</strong></p>
-
-        <p>When I was in the worst of it, I looked for senior professionals who had been through the same thing and come out the other side. I couldn't find them. Not because they didn't exist, but because none of them were talking. That silence nearly cost me everything.</p>
-
-        <p>Not everyone goes through this. Some people have fortunate careers without stigmatizing setbacks, and I don't want to pretend otherwise. But I believe most professionals don't share their setbacks with the same honesty they share their successes. That gap costs all of us something. It costs the person carrying it in silence. And it costs the next person who goes through it alone because they never saw someone come out the other side.</p>
-
-        <p>I haven't proven anything yet. I'm testing a hypothesis: that radical transparency about where I've been, combined with demonstrated competence in what I can build, will open more doors than it closes. That the right organizations will see resilience as a qualification, not a risk.</p>
-
-        <p>I could be wrong. But I'd rather test it in public than wonder in private.</p>
-
-        <p>Right now, I'm in an active job search for senior leadership roles. And yes, I'm aware that hiring managers will read this page. That's by design. I'd rather you know who I am before the first conversation than manage your perception through the third. The setbacks I've described here are real, they're processed, and they inform how I lead, not whether I can. If anything, what I've been through has made me a more effective operator: slower to react, faster to listen, and unwilling to let the people around me suffer in silence the way I did.</p>
-
-        <p>And I'm documenting all of it because the space between &ldquo;senior leader looking for a role&rdquo; and &ldquo;senior leader landing a role&rdquo; is a silence that helps no one.</p>
-
-        <p>That's what #CarriedThat is for. Not a claim that everyone carries something. An invitation for those who do to stop carrying it alone.</p>
-    </div>
-</div>
-
-<div class="silence-section reveal">
-    <div class="silence-inner">
-        <div class="section-label">The Silence</div>
-        <h2 class="silence-title">What the professional world tells you vs. what's actually true.</h2>
-        <div class="silence-grid">
-            <div class="silence-card what"><div class="silence-label">What they say</div><div class="silence-text">&ldquo;Leave personal issues at the door&rdquo;</div></div>
-            <div class="silence-card real"><div class="silence-label">What's true</div><div class="silence-text">Depression doesn't clock out at 9-to-5</div></div>
-            <div class="silence-card what"><div class="silence-label">What they say</div><div class="silence-text">&ldquo;Mental health days are for everyone&rdquo;</div></div>
-            <div class="silence-card real"><div class="silence-label">What's true</div><div class="silence-text">Taking one as a senior leader signals weakness to the org</div></div>
-            <div class="silence-card what"><div class="silence-label">What they say</div><div class="silence-text">&ldquo;We value authenticity&rdquo;</div></div>
-            <div class="silence-card real"><div class="silence-label">What's true</div><div class="silence-text">Not the kind that involves a hospital stay</div></div>
-            <div class="silence-card what"><div class="silence-label">What they say</div><div class="silence-text">&ldquo;Failure is a learning opportunity&rdquo;</div></div>
-            <div class="silence-card real"><div class="silence-label">What's true</div><div class="silence-text">As long as you never name it on your resume</div></div>
+        <div class="stat">
+            <div class="stat-number">72%</div>
+            <div class="stat-label">Of entrepreneurs report mental health concerns</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">&lt;1%</div>
+            <div class="stat-label">Of executives talk about it publicly</div>
         </div>
     </div>
-</div>
 
-<div class="carry-section reveal">
-    <div class="carry-inner">
-        <div class="section-label">#CarriedThat</div>
-        <h2 class="carry-title">This movement is for anyone carrying something they haven't said out loud.</h2>
-        <p class="carry-desc">Mental health. Career setbacks. The gap on the resume you can't explain in 30 seconds. Whatever it is, it shaped you. And it deserves more than silence.</p>
-        <div class="carry-grid">
-            <div class="carry-card">
-                <div class="carry-card-icon">&#129504;</div>
-                <div class="carry-card-title">The diagnosis</div>
-                <div class="carry-card-text">Depression. Anxiety. PTSD. Bipolar. ADHD. The thing you manage every day that never shows up on your performance review but affects every single one.</div>
-            </div>
-            <div class="carry-card">
-                <div class="carry-card-icon">&#128201;</div>
-                <div class="carry-card-title">The setback</div>
-                <div class="carry-card-text">Being fired. Being restructured out. The promotion that went to someone else. The chapter that ended before you were ready. The gap year that wasn't a choice.</div>
-            </div>
-            <div class="carry-card">
-                <div class="carry-card-icon">&#127917;</div>
-                <div class="carry-card-title">The label</div>
-                <div class="carry-card-text">&ldquo;Not a culture fit.&rdquo; &ldquo;Too intense.&rdquo; &ldquo;Personality issue.&rdquo; The feedback that wasn't really feedback. It was a verdict. And you've been carrying it since.</div>
-            </div>
-            <div class="carry-card">
-                <div class="carry-card-icon">&#128260;</div>
-                <div class="carry-card-title">The rebuild</div>
-                <div class="carry-card-text">Starting over at 30, 40, 50. Reinventing yourself after the thing you built your identity around disappeared. Finding out who you are without the title.</div>
-            </div>
-        </div>
-    </div>
-</div>
+    <p class="section-body">
+        The people making the biggest decisions in business are also the least likely to admit they're struggling. Not because they're stronger — because the professional system punishes honesty and rewards performance. <strong>#CarriedThat exists to change that dynamic.</strong>
+    </p>
+</section>
 
-<div class="data-section">
-    <div class="data-inner reveal">
-        <div class="section-label">The Data</div>
-        <h2 class="data-title">Help us measure the silence.</h2>
-        <p class="data-desc">Most vulnerability content on LinkedIn is anecdotal. We're building the first data set on what professionals actually carry and what happens when they share it. Two ways to contribute:</p>
-        <div class="data-grid">
-            <div class="data-card">
-                <div class="data-card-number">01</div>
-                <div class="data-card-title">Share Your Story</div>
-                <div class="data-card-text">Tell us what you carried and what you did with the weight. Anonymous submissions welcome. Featured stories are shared only with your permission on #CarriedThat Fridays.</div>
-                <a href="https://bit.ly/CarriedThatIntake" target="_blank" class="btn btn-primary btn-small">Submit Your Story &rarr;</a>
-            </div>
-            <div class="data-card">
-                <div class="data-card-number">02</div>
-                <div class="data-card-title">Take the Anonymous Survey</div>
-                <div class="data-card-text">2 minutes. No identifying information. We're measuring what professionals hide, what it costs, and what would make it safe to be honest. Results published in aggregate.</div>
-                <a href="https://bit.ly/ProfessionalSetbackSurvey" target="_blank" class="btn btn-primary btn-small">Take the Survey &rarr;</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="manifesto">
-    <div class="manifesto-inner reveal">
-        <div class="section-label">The Rules</div>
-        <h2 class="manifesto-title">I reserve the right to tell the truth, the whole truth, or the parts that matter.</h2>
-        <div class="divider"></div>
-        <ol class="rules-list">
-            <li><strong>Everything I share will be true.</strong> No embellishments, no invented metrics, no fabricated timelines. If I say a number, I can back it up.</li>
-            <li><strong>I will name what I carried.</strong> Depression. PTSD. Hospitalization. By name. Not because it's comfortable, but because euphemisms let everyone pretend it's not happening.</li>
-            <li><strong>I will not name people or companies in negative contexts.</strong> This is about destigmatizing setbacks, not settling scores. The point is what I carried, not who handed it to me.</li>
-            <li><strong>I will own my part.</strong> I wasn't always the hero. I didn't always handle it well. Accountability is the spine of this. Without it, vulnerability becomes performance.</li>
-            <li><strong>I will not perform recovery.</strong> I'm not &ldquo;healed.&rdquo; I'm not &ldquo;past it.&rdquo; I'm building. Some days are good. Some aren't. That's the truth and I won't polish it.</li>
-            <li><strong>I accept the risk.</strong> Some hiring managers will read this and pass. Some will read this and reach out. I'd rather work for the second kind.</li>
-        </ol>
-    </div>
-</div>
-
-<div class="disclaimer-section reveal">
-    <div class="section-label">The Fine Print (That Isn't Fine Print)</div>
-    <h2 class="disclaimer-title">This isn't a safety blanket.</h2>
+<section>
+    <div class="section-label">What We Carry</div>
+    <h2 class="section-title">Everyone's carrying something different.</h2>
     <div class="divider"></div>
-    <p class="disclaimer-text">I'm not going to promise you that sharing your story will be safe. Some people will use your honesty against you. Some hiring managers will pass on your resume because you admitted to being human. Some colleagues will treat you differently.</p>
-    <p class="disclaimer-text">That's real. I won't pretend otherwise.</p>
-    <p class="disclaimer-text">But I will tell you this:</p>
-    <div class="disclaimer-box"><p>I cannot prevent someone from discriminating against you for your honesty. But do you really want their approval?</p></div>
-    <p class="disclaimer-text">The people who reach out <em>because</em> of your story are the people worth building with. The doors that close because you told the truth were never your doors. That's not optimism. That's a filtering mechanism. And for what it's worth, the DMs I've received since I started sharing have been from executives, veterans, founders, and leaders who said: <strong>&ldquo;Thank you. I carry something too.&rdquo;</strong></p>
-</div>
-
-<div class="participate reveal" id="participate">
-    <div class="participate-inner">
-        <div class="section-label">Your Turn</div>
-        <h2 class="participate-title">Share what you #CarriedThat</h2>
-        <p class="participate-desc">You don't need permission. You don't need a polished story. You don't need to name names. You just need to be willing to go next.</p>
-        <div class="participate-steps">
-            <div class="participate-step">
-                <div class="step-number">01</div>
-                <div class="step-title">Name it</div>
-                <div class="step-desc">The diagnosis, the firing, the label, the ending. The thing you've been carrying that shaped who you became. Say it plainly. Euphemisms keep the stigma alive.</div>
-            </div>
-            <div class="participate-step">
-                <div class="step-number">02</div>
-                <div class="step-title">Own it</div>
-                <div class="step-desc">This isn't about blame. It's about what you carried and what you did with the weight. Your part, your process, your rebuild. Accountability is what separates this from a victim story.</div>
-            </div>
-            <div class="participate-step">
-                <div class="step-number">03</div>
-                <div class="step-title">Share it</div>
-                <div class="step-desc">Add #CarriedThat to your LinkedIn post. Tag me if you want. I'll amplify every single one. Or post anonymously. The story matters more than the byline.</div>
-            </div>
+    <div class="cards-grid">
+        <div class="card">
+            <div class="card-icon">🧠</div>
+            <div class="card-title">The diagnosis</div>
+            <div class="card-desc">The thing you manage every day that never shows up on your performance review but shapes every single one.</div>
         </div>
-        <div class="tagline">I'll go first. Your turn.</div>
-        <a href="https://www.linkedin.com/in/olson-richard" target="_blank" class="btn btn-primary" style="margin-bottom:1.5rem;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            Connect &amp; Share Your Story
-        </a>
-        <div class="resources-note">
-            <div class="resources-note-title">If you're in crisis</div>
-            <p>If you or someone you know is struggling, please reach out. You are not alone.</p>
-            <p><strong>988 Suicide &amp; Crisis Lifeline:</strong> Call or text <a href="tel:988">988</a> (available 24/7)</p>
-            <p><strong>Crisis Text Line:</strong> Text HOME to <a href="sms:741741">741741</a></p>
-            <p><strong>Veterans Crisis Line:</strong> Call <a href="tel:988">988</a>, then press 1</p>
+        <div class="card">
+            <div class="card-icon">📉</div>
+            <div class="card-title">The setback</div>
+            <div class="card-desc">Being restructured out. The promotion that went to someone else. The chapter that ended before you were ready.</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🎭</div>
+            <div class="card-title">The label</div>
+            <div class="card-desc">"Not a culture fit." The feedback that wasn't really feedback. The verdict you've been quietly carrying since.</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔄</div>
+            <div class="card-title">The rebuild</div>
+            <div class="card-desc">Starting over at 30, 40, 50. Reinventing yourself after the thing you built your identity around disappeared.</div>
         </div>
     </div>
-</div>
+</section>
+
+<section>
+    <div class="section-label">How to Participate</div>
+    <h2 class="section-title">Your turn to go next.</h2>
+    <div class="divider"></div>
+    <p class="section-body">You don't need a polished story. You don't need to name names. You just need to be willing to be honest about something that shaped you.</p>
+    <div class="how-grid">
+        <div class="how-step">
+            <div class="how-number">01</div>
+            <div class="how-title">Name it</div>
+            <div class="how-desc">The challenge, the pivot, the ending, the label. The thing you've been carrying that made you who you are. Say it plainly.</div>
+        </div>
+        <div class="how-step">
+            <div class="how-number">02</div>
+            <div class="how-title">Own it</div>
+            <div class="how-desc">This isn't about blame. What did you carry, and what did you do with the weight? Accountability separates this from a victim story.</div>
+        </div>
+        <div class="how-step">
+            <div class="how-number">03</div>
+            <div class="how-title">Share it</div>
+            <div class="how-desc">Add #CarriedThat to your LinkedIn post. I'll amplify every one. Anonymous submissions welcome — the story matters more than the byline.</div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="cta-block">
+        <h2>Ready to share what you've carried?</h2>
+        <p>Two ways to contribute — public post on LinkedIn or an anonymous submission. Both count.</p>
+        <div class="cta-buttons">
+            <a href="https://www.linkedin.com/in/olson-richard" target="_blank" class="btn btn-primary">Follow on LinkedIn →</a>
+            <a href="https://bit.ly/CarriedThatIntake" target="_blank" class="btn btn-secondary">Submit Anonymously</a>
+        </div>
+    </div>
+</section>
 
 <footer>
-    <p>&copy; 2026 Richard Olson &middot; <a href="https://r4olson.github.io">Portfolio</a> &middot; <a href="https://r4olson.github.io/movement.html">The Movement</a> &middot; <a href="https://www.linkedin.com/in/olson-richard" target="_blank">LinkedIn</a></p>
+    <p>© 2026 Richard Olson · <a href="https://r4olson.github.io">Portfolio</a> · <a href="https://www.linkedin.com/in/olson-richard" target="_blank">LinkedIn</a></p>
 </footer>
-
-<script>
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => { document.querySelector('.nav-links').classList.remove('open'); });
-    });
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
